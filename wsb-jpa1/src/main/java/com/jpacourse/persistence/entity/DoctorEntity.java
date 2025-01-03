@@ -34,6 +34,10 @@ public class DoctorEntity {
 	@OneToMany(mappedBy = "doctor", cascade = CascadeType.ALL)
 	private List<VisitEntity> visits;
 
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "ADDRESS_ID", nullable = false)
+	private AddressEntity address;
+
 
 	public Long getId() {
 		return id;

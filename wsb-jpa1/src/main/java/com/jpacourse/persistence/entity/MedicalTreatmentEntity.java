@@ -18,9 +18,6 @@ public class MedicalTreatmentEntity {
 	@Enumerated(EnumType.STRING)
 	private TreatmentType type;
 
-	@ManyToOne
-	@JoinColumn(name = "patient_id", nullable = false)
-	private PatientEntity patient;
 
 	public Long getId() {
 		return id;
