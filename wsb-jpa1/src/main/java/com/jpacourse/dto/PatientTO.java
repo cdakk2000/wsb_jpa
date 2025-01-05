@@ -88,6 +88,10 @@ public class PatientTO implements Serializable {
 
     public void setAddress(AddressEntity address) {this.address = address;}
 
+    public List<VisitTO> getVisits() {
+        return visits;
+    }
+
     public void setVisits(List<VisitTO> visits) { this.visits = visits; }
 
     public Boolean getIsAdult() { return isAdult; }

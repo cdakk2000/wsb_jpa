@@ -14,10 +14,10 @@ VALUES (2, 'Kasia', 'Wola', '987654321', 'kasia.wola@onet.com', 'P124', '1994-05
 
 -- Lekarze
 INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization, address_id)
-VALUES (1, 'Jan', 'Kowalski', '123456789', 'jan.kowalski@example.com', 'D001', 'CHIRURG', 1);
+VALUES (1, 'Jan', 'Kowalski', '123456789', 'jan.kowalski@example.com', 'D001', 'SURGEON', 1);
 
 INSERT INTO doctor (id, first_name, last_name, telephone_number, email, doctor_number, specialization, address_id)
-VALUES (2, 'Robert', 'Gabka', '321654987', 'RobertGabka@example.com', 'D568', 'NEUROLOGIST', 2);
+VALUES (2, 'Robert', 'Gabka', '321654987', 'RobertGabka@example.com', 'D568', 'SURGEON', 2);
 
 -- Wizyty
 INSERT INTO visit (id, description, time, patient_id, doctor_id)

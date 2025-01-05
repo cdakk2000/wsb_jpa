@@ -5,3 +5,5 @@ import com.jpacourse.persistence.entity.PatientEntity;
 public interface PatientDao extends Dao<PatientEntity, Long> {
 
 }
+
+
