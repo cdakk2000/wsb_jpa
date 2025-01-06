@@ -28,6 +28,19 @@ public class PatientTO implements Serializable {
 
     private Boolean isAdult;
 
+    private Integer numberOfVisits;
+
+    public Integer getNumberOfVisits() {
+        if (visits != null) {
+            return visits.size();
+        }
+        return 0;
+    }
+
+    public void setNumberOfVisits(Integer numberOfVisits) {
+        this.numberOfVisits = numberOfVisits;
+    }
+
     public Long getId() {
         return id;
     }

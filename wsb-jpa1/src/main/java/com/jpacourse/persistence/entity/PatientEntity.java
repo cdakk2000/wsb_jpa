@@ -41,6 +41,16 @@ public class PatientEntity {
 	@OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
 	private List<VisitEntity> visits;
 
+	@Transient
+	private Integer numberOfVisits;
+
+	public Integer getNumberOfVisits() {
+		if (visits != null) {
+			return visits.size();
+		}
+		return 0;
+	}
+
 	@Column
 	private Boolean isAdult;
 
@@ -109,4 +119,7 @@ public class PatientEntity {
 	public void setIsAdult(Boolean isAdult) { this.isAdult = isAdult; }
 
 	public void setAddress(AddressEntity address) {this.address = address;}
+
+
+
 }

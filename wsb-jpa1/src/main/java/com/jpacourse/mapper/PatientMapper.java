@@ -8,10 +8,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PatientMapper {
-    public static PatientTO mapToTO(final PatientEntity patientEntity)
-    {
-        if (patientEntity == null)
-        {
+    public static PatientTO mapToTO(final PatientEntity patientEntity) {
+        if (patientEntity == null) {
             return null;
         }
 
@@ -31,6 +29,10 @@ public class PatientMapper {
                     .map(VisitMapper::mapToTO)
                     .collect(Collectors.toList());
             patientTO.setVisits(visitsTo);
+
+            patientTO.setNumberOfVisits(visitsTo.size());
+        } else {
+            patientTO.setNumberOfVisits(0);
         }
 
         patientTO.setIsAdult(patientEntity.getIsAdult());
@@ -38,10 +40,8 @@ public class PatientMapper {
         return patientTO;
     }
 
-    public static PatientEntity mapToEntity(final PatientTO patientTO)
-    {
-        if (patientTO == null)
-        {
+    public static PatientEntity mapToEntity(final PatientTO patientTO) {
+        if (patientTO == null) {
             return null;
         }
 

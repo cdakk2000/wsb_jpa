@@ -63,4 +63,20 @@ public class PatientServiceTest {
         assertThat(patientTO.getVisits().get(0).getDoctor().getFirstName()).isEqualTo("Jan");
         assertThat(patientTO.getIsAdult()).isTrue();
     }
+
+
+    @Test
+    @Transactional
+    public void shouldRetrievePatientWithNumberOfVisits() {
+        // given
+        Long patientId = 1L;
+
+        // when
+        PatientTO patientTO = patientService.findPatientById(patientId);
+
+        // then
+        assertThat(patientTO).isNotNull();
+        assertThat(patientTO.getNumberOfVisits()).isEqualTo(patientTO.getVisits().size());
+    }
+
 }
