@@ -48,3 +48,4 @@ VALUES (3, 'usg serca', 'USG', 3);
 
 INSERT INTO medical_treatment (id, description, type, visit_id)
 VALUES (4, 'usg nogi', 'RTG', 4);
+

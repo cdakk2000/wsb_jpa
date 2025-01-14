@@ -11,6 +11,8 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
+import java.time.LocalDate;
+
 @Repository
 public class PatientDaoImpl implements PatientDao {
 
@@ -119,6 +121,35 @@ public class PatientDaoImpl implements PatientDao {
     @Override
     public boolean exists(Long id) {
         return entityManager.find(PatientEntity.class, id) != null;
+    }
+
+
+
+
+
+    @Override
+    public List<PatientEntity> findPatientsByLastName(String lastName) {
+        return entityManager.createQuery(
+                        "SELECT p FROM PatientEntity p WHERE p.lastName = :lastName", PatientEntity.class)
+                .setParameter("lastName", lastName)
+                .getResultList();
+    }
+
+    @Override
+    public List<PatientEntity> findPatientsWithMoreThanXVisits(int visitCount) {
+        return entityManager.createQuery(
+                        "SELECT p FROM PatientEntity p WHERE SIZE(p.visits) > :visitCount", PatientEntity.class)
+                .setParameter("visitCount", visitCount)
+                .getResultList();
+    }
+
+
+    @Override
+    public List<PatientEntity> findPatientsBornBefore(LocalDate date) {
+       return entityManager.createQuery(
+                        "SELECT p FROM PatientEntity p WHERE p.dateOfBirth < :date", PatientEntity.class)
+                .setParameter("date", date)
+                .getResultList();
     }
 
 }

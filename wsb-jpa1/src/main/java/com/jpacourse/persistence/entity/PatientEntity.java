@@ -44,6 +44,8 @@ public class PatientEntity {
 	@Transient
 	private Integer numberOfVisits;
 
+
+
 	public Integer getNumberOfVisits() {
 		if (visits != null) {
 			return visits.size();
@@ -120,6 +122,19 @@ public class PatientEntity {
 
 	public void setAddress(AddressEntity address) {this.address = address;}
 
+
+
+	@Version
+	@Column(name = "version")
+	private Integer version;
+
+	public Integer getVersion() {
+		return version;
+	}
+
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
 
 
 }
