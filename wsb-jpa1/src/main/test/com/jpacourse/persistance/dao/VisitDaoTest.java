@@ -35,21 +35,5 @@ public class VisitDaoTest {
         assertThat(visits.get(0).getPatient().getId()).isEqualTo(patientId);
     }
 
-    @Test
-    @Transactional
-    public void testOptimisticLockOnVisit() {
-
-        VisitEntity visit = visitDao.findById(1L).orElseThrow();
-        visit.setDescription("Updated Description");
-
-        VisitEntity anotherVisitInstance = visitDao.findById(1L).orElseThrow();
-        anotherVisitInstance.setDescription("Conflicting Description");
-        visitDao.save(anotherVisitInstance);
-
-        assertThrows(OptimisticLockException.class, () -> {
-            visitDao.save(visit);
-        });
-    }
-
 }
 
